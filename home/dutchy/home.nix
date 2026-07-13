@@ -11,4 +11,8 @@
 
   programs.kitty.enable = true;
   programs.gh.enable = true;
+
+  home.packages = with pkgs; [
+    claude-code
+  ];
 }
