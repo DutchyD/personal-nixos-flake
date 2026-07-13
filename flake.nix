@@ -18,6 +18,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "backup";
           home-manager.users.dutchy = import ./home/dutchy/home.nix;
         }
       ];
