@@ -10,4 +10,5 @@
   programs.home-manager.enable = true;
 
   programs.kitty.enable = true;
+  programs.gh.enable = true;
 }
