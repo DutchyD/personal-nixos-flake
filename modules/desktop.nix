@@ -20,4 +20,5 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+  services.displayManager.sddm.wayland.enable = true;
 }
