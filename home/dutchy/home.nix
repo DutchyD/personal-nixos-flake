@@ -17,6 +17,8 @@
     jetbrains-toolbox
     vivaldi
     ghostty
+    hyprlauncher
+    kdePackages.dolphin
   ];
   
   programs.fuzzel = {
