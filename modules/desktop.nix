@@ -1,7 +1,8 @@
 { pkgs, ... }:
 
 {
-  hardware.graphics.enable = true;
+  # Hyprland desktop. Pulls in the shared display-manager/audio stack.
+  imports = [ ./desktop-common.nix ];
 
   programs.hyprland.enable = true;
 
@@ -10,15 +11,8 @@
     extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
 
-  services.displayManager.sddm.enable = true;
   services.displayManager.defaultSession = "hyprland";
 
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-  services.displayManager.sddm.wayland.enable = true;
+  # Hyprland-specific tooling. Only installed on hosts that enable Hyprland.
+  environment.systemPackages = [ pkgs.hyprlauncher ];
 }

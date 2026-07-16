@@ -12,12 +12,22 @@
   programs.kitty.enable = true;
   programs.gh.enable = true;
   
+  # git is provided system-wide (modules/core.nix) and gh via programs.gh above.
   home.packages = with pkgs; [
     claude-code
     jetbrains-toolbox
-    vivaldi
+    (vivaldi.override {
+      proprietaryCodecs = false;
+      enableWidevine = true;
+    })
+    firefox
+    google-chrome
+    discord
+    spotify
+    steam
+    krusader
+    kdePackages.kate
     ghostty
-    hyprlauncher
     kdePackages.dolphin
   ];
   
