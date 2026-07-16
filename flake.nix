@@ -32,7 +32,7 @@
     {
       nixosConfigurations = {
         nixos = mkHost ./hosts/nixos;
-        mini-dev = mkHost ./hosts/mini-dev;
+        dev-mini = mkHost ./hosts/dev-mini;
       };
     };
 }

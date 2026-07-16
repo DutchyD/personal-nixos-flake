@@ -8,7 +8,7 @@
   ];
 
   networking = {
-    hostName = "mini-dev";
+    hostName = "dev-mini";
 
     # Force reliable public upstream DNS instead of whatever DHCP hands out.
     nameservers = [ "1.1.1.1" "8.8.8.8" ];
