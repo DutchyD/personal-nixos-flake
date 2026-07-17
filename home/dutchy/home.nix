@@ -9,11 +9,16 @@
 
   programs.home-manager.enable = true;
 
-  programs.kitty.enable = true;
   programs.gh.enable = true;
   
   # git is provided system-wide (modules/core.nix) and gh via programs.gh above.
   home.packages = with pkgs; [
+    dotnet-sdk_10
+    jdk25
+    nodejs
+    bun
+    pnpm
+
     claude-code
     jetbrains-toolbox
     (vivaldi.override {
@@ -29,26 +34,7 @@
     kdePackages.kate
     ghostty
     kdePackages.dolphin
+    kdiff3
+    krename
   ];
-  
-  programs.fuzzel = {
-    enable = true;
-    settings = {
-      main = {
-        terminal = "ghostty"; # Or your preferred terminal emulator
-        layer = "overlay";
-        lines = 10;
-        width = 30;
-        font = "monospace:size=12";
-      };
-      colors = {
-        background = "282a36ff";
-        text = "f8f8f2ff";
-        match = "8be9fdff";
-        selection = "44475aff";
-        selection-text = "f8f8f2ff";
-        border = "bd93f9ff";
-      };
-    };
-  };
 }
