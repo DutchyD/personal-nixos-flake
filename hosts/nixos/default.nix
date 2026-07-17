@@ -4,7 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules
-    ../../modules/desktop.nix # Hyprland
+    ../../modules/desktop-specialisations.nix
   ];
 
   networking.hostName = "nixos";

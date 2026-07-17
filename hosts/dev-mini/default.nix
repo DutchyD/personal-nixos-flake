@@ -4,7 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules
-    ../../modules/desktop-plasma.nix # KDE Plasma 6
+    ../../modules/desktop-specialisations.nix
   ];
 
   networking = {
