@@ -37,6 +37,7 @@
       nixosConfigurations = {
         nixos = mkHost ./hosts/nixos;
         dev-mini = mkHost ./hosts/dev-mini;
+        mini-driver = mkHost ./hosts/mini-driver;
       };
     };
 }
