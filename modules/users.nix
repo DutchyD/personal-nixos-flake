@@ -5,6 +5,6 @@
   users.users.dutchy = {
     isNormalUser = true;
     description = "Dylan de Beer";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 }

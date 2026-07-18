@@ -6,5 +6,6 @@
     ./core.nix
     ./locale.nix
     ./users.nix
+    ./virtualisation.nix
   ];
 }

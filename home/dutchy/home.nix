@@ -36,5 +36,6 @@
     kdePackages.dolphin
     kdiff3
     krename
+    lunar-client
   ];
 }
