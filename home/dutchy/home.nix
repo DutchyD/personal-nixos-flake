@@ -29,7 +29,6 @@
     google-chrome
     discord
     spotify
-    steam
     krusader
     kdePackages.kate
     ghostty
