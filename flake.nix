@@ -1,43 +1,41 @@
 {
-  description = "Dylan's NixOS configurations";
+  description = "NixOS configurations";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    aagl = {
-      url = "github:ezKEa/aagl-gtk-on-nix";
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      plasma-manager,
+      ...
+    }:
     let
-      # Shared home-manager wiring for the dutchy user.
-      homeManager = {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.backupFileExtension = "backup";
-        home-manager.users.dutchy = import ./home/dutchy/home.nix;
-      };
-
-      # no `system` arg — each host's hardware-configuration.nix sets
-      # nixpkgs.hostPlatform.
-      mkHost = hostModule: nixpkgs.lib.nixosSystem {
-        modules = [
-          hostModule
-          home-manager.nixosModules.home-manager
-          homeManager
-        ];
-      };
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+      nixosConfigurations = import ./lib { inherit nixpkgs home-manager plasma-manager; };
     in
     {
-      nixosConfigurations = {
-        nixos = mkHost ./hosts/nixos;
-        dev-mini = mkHost ./hosts/dev-mini;
-        mini-driver = mkHost ./hosts/mini-driver;
+      inherit nixosConfigurations;
+
+      devShells.${system} = import ./shells { inherit pkgs; };
+
+      formatter.${system} = pkgs.nixfmt-tree;
+
+      checks.${system} = import ./lib/checks.nix {
+        inherit pkgs nixosConfigurations;
+        source = ./.;
       };
     };
 }

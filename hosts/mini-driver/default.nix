@@ -1,16 +1,12 @@
-{ ... }:
-
 {
-  imports = [
-    ./hardware-configuration.nix
-    ../../modules
-    ../../modules/desktop-specialisations.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
-  networking.hostName = "mini-driver";
+  custom = {
+    development.enable = true;
+    docker.enable = true;
+    gaming.enable = true;
+    nixLd.enable = true;
+  };
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data were taken. Leave it at the release
-  # version of the first install of this system.
   system.stateVersion = "26.05";
 }
