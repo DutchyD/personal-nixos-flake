@@ -2,6 +2,7 @@
   nixpkgs,
   home-manager,
   plasma-manager,
+  umbriel,
 }:
 
 let
@@ -30,6 +31,7 @@ let
         { networking.hostName = hostName; }
         ../hosts/${hostName}
         ../modules
+        umbriel.nixosModules.default
         home-manager.nixosModules.home-manager
         homeManagerWiring
       ];

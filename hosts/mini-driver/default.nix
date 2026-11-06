@@ -8,5 +8,7 @@
     nixLd.enable = true;
   };
 
+  specialisation.umbriel.configuration.custom.desktop = "umbriel";
+
   system.stateVersion = "26.05";
 }

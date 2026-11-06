@@ -51,6 +51,8 @@ Other options:
 
 The default boot entry runs KDE Plasma 6 behind SDDM. A specialisation drops Plasma by selecting another desktop. Desktop applications in Home Manager follow the same choice.
 
+mini-driver has an `umbriel` specialisation that runs the [Umbriel](https://github.com/noctalia-dev/umbriel) Wayland compositor behind Noctalia Greeter on greetd. Pick it in the boot menu.
+
 To add a console-only boot entry to a host, set `custom.desktop` to `"none"` inside `specialisation.<name>.configuration` in that host's `default.nix`. Never set `custom.desktop` outside a specialisation. Doing so conflicts with any specialisation that sets it.
 
 Plasma settings that should be the same on every machine are declared with plasma-manager in `home/<user>/plasma.nix`: global theme, virtual desktops, screen locking, mouse acceleration and default applications. Only the declared settings are managed; anything changed in System Settings that is also declared there is reset on the next rebuild. To capture new settings, run `nix run github:nix-community/plasma-manager#rc2nix` and copy the relevant lines.

@@ -12,6 +12,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    umbriel = {
+      url = "github:noctalia-dev/umbriel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -19,12 +23,20 @@
       nixpkgs,
       home-manager,
       plasma-manager,
+      umbriel,
       ...
     }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      nixosConfigurations = import ./lib { inherit nixpkgs home-manager plasma-manager; };
+      nixosConfigurations = import ./lib {
+        inherit
+          nixpkgs
+          home-manager
+          plasma-manager
+          umbriel
+          ;
+      };
     in
     {
       inherit nixosConfigurations;
