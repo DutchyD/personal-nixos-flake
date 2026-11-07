@@ -5,6 +5,7 @@
     ./desktop.nix
     ./gaming.nix
     ./plasma.nix
+    ./umbriel.nix
   ];
 
   home.stateVersion = "26.05";

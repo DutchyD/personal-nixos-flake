@@ -19,7 +19,10 @@ let
         useGlobalPkgs = true;
         useUserPackages = true;
         backupFileExtension = "backup";
-        sharedModules = [ plasma-manager.homeModules.plasma-manager ];
+        sharedModules = [
+          plasma-manager.homeModules.plasma-manager
+          umbriel.homeModules.default
+        ];
         users.${config.custom.user.name} = import ../home/${config.custom.user.name};
       };
     };
