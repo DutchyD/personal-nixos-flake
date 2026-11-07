@@ -2,7 +2,10 @@
 
 {
   home.packages = with pkgs; [
-    dotnet-sdk_10
+    (dotnetCorePackages.combinePackages [
+      dotnet-sdk_10
+      dotnet-sdk_11
+    ])
     jdk25
     nodejs
     bun

@@ -12,6 +12,7 @@
       (vivaldi.override {
         proprietaryCodecs = true;
         enableWidevine = true;
+        commandLineArgs = "--password-store=kwallet6";
       })
       firefox
       google-chrome

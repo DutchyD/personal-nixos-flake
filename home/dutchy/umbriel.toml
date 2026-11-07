@@ -65,7 +65,7 @@ autostart = ["noctalia"]
 # Outputs are machine-specific. Run `umbriel outputs` to find names and modes.
 # https://docs.noctalia.dev/umbriel/outputs/
 #
-# [output.DP-1]
+# e[output.DP-1]
 # mode = "2560x1440@144"
 # position = [0, 0]
 # scale = 1.25
@@ -323,6 +323,7 @@ default_extent_fraction = 0.5
 # moves anything behind them.
 [[window_rule]]
 blur = true
+opacity = 0.99
 
 [[window_rule]]
 match.app_id = "^dev.noctalia.Noctalia$"
